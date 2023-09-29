@@ -255,7 +255,7 @@
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem1"
                                     aria-expanded="true"><span>1.</span><span style="padding: 0px 10px 0px 20px">  أول مركز في العالم تجرى فيه عملية Femto Epith Ingrowth Removal. 
                                     </span></a>
-                                <div id="faqItem1" class="collapse show faq-item-content" role="tabpanel">
+                                <div id="faqItem1" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
                                         <p>If you would like to make an appointment with one of our practitioners, please
                                             contact our reception staff. Alternatively you may book your appointments
@@ -270,7 +270,7 @@
                                     aria-expanded="true"><span>2.</span><span style="padding: 0px 10px 0px 20px"> أول مركز في الشرق الأوسط تجرى فيه عملية زراعة القرنية LKP بالتخدير السطحي.
  
                                     </span></a>
-                                <div id="faqItem2" class="collapse show faq-item-content" role="tabpanel">
+                                <div id="faqItem2" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
                                         <p>If you would like to make an appointment with one of our practitioners, please
                                             contact our reception staff. Alternatively you may book your appointments
@@ -285,7 +285,7 @@
                                     aria-expanded="true"><span>3.</span><span style="padding: 0px 10px 0px 20px"> أول مركز في المملكة تجرى فيه عملية زراعة القزحية.
  
                                     </span></a>
-                                <div id="faqItem3" class="collapse show faq-item-content" role="tabpanel">
+                                <div id="faqItem3" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
                                         <p>If you would like to make an appointment with one of our practitioners, please
                                             contact our reception staff. Alternatively you may book your appointments
@@ -300,7 +300,7 @@
                                     aria-expanded="true"><span>4.</span><span style="padding: 0px 10px 0px 20px">  أول مركز في الرياض تجرى فيه زراعة الطبقة المبطنة للقرنية.
  
                                     </span></a>
-                                <div id="faqItem4" class="collapse show faq-item-content" role="tabpanel">
+                                <div id="faqItem4" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
                                         <p>If you would like to make an appointment with one of our practitioners, please
                                             contact our reception staff. Alternatively you may book your appointments
@@ -316,7 +316,7 @@
 
  
                                     </span></a>
-                                <div id="faqItem5" class="collapse show faq-item-content" role="tabpanel">
+                                <div id="faqItem5" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
                                         <p>If you would like to make an appointment with one of our practitioners, please
                                             contact our reception staff. Alternatively you may book your appointments

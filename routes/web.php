@@ -128,6 +128,7 @@ Route::get('/offersPage/{id?}', function ($id = null) {
 Route::get('/about', [AboutController::class, 'index'])->name('about.display');
 
 Route::middleware(['auth'])->group(function () {
+    
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
