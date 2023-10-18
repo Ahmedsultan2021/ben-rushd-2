@@ -1,22 +1,7 @@
 @extends('master')
 @section('content')
     <div class="page-content">
-        <!--section slider-->
         <div class="section mt-0">
-
-            {{-- <div id="mainSliderWrapper" >
-                <div class="loading-content">
-                    <div class="loader-circle"></div>
-                </div>
-                <div class="main-slider mb-0 arrows-white arrows-bottom"  id="mainSlider"
-                    data-slick='{"arrows": false, "dots": true}'>
-                
-                            <div class="slide" >
-								<img class="img--holder"style="background-position: center center;  "  width="100%" data-bg="{{ asset('images/offers') }}/{{ $offer->image }}">
-						   </div>
-        
-                </div>
-            </div> --}}
             <div id="carouselExampleSlidesOnly" style="margin: 0px;width: 100%;min-height: 150px;max-height: 600px ;" class="carousel slide" data-ride="carousel">
                 @foreach ($offers as $offer)
                     <div class="carousel-inner">
@@ -29,9 +14,7 @@
                     </div>
                 @endforeach
             </div>
-            
         </div>
-
         <div class="section mt-0 bg-primary text-white">
             <div class="container ">
                 <div class="promo-text">

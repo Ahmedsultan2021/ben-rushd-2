@@ -34,10 +34,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $offers = Offer::all();
+
+    $now = now();
+    $offers = Offer::where('startTime','<=',$now)->where('endTime','>=',$now)->get();
+    // dd($offers);
     $branches = Branch::all();
     $departments = Department::all();
     $doctors = Doctor::where('highligthed',1)->get();
+
+
+    
 
     $contact = config('about');
     return view('Home', ["offers" => $offers,"about"=>$contact,"departments"=>$departments,"branches"=>$branches,"doctors"=>$doctors]);

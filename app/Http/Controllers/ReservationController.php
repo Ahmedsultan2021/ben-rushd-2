@@ -6,6 +6,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Exports\ReservationsExport;
 use App\Exports\OfferReservationsExport;
+use App\Models\Offer;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
@@ -133,6 +134,24 @@ class ReservationController extends Controller
             'survey' => 'nullable|in:internet,sms,WordOfMouth',  // validation for the new field
             'isOffer' => 'nullable|in:0,1',  // validation for the new field
         ]);
+
+
+
+        // Check if reservation should be under an offer's start and end time
+        if ($request->isOffer && $request->isOffer == '1') {
+            $offer = Offer::find($request->offer_id);
+
+            if (!$offer) {
+                return redirect()->back()->withErrors(['offer_id' => 'Offer not found.']);
+            }
+
+            $now = now();
+
+            if ($now->lt($offer->startTime) || $now->gt($offer->endTime)) {
+                return redirect()->back()->withErrors(['offer_id' => 'The reservation is outside the offer\'s valid period.']);
+            }
+        }
+
 
         // Create a new reservation using the request data
         $reservation = new Reservation;
