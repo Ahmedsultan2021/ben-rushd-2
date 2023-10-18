@@ -86,10 +86,13 @@ Route::get('/singleDoctors/{id}', function ($id) {
 })->name('doctor');
 
 Route::get('/departments', function () {
-    return view('departments');
+    $departments = Department::all();
+    return view('departments',["departments"=>$departments]);
 })->name('departments');
 Route::get('/ourBranches', function () {
-    return view('ourBranches');
+    $branches = Branch::where('active','1')->get();
+    
+    return view('ourBranches',["branches"=>$branches]);
 })->name('ourBranches');
 Route::get('/partners', function () {
     return view('partners');

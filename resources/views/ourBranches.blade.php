@@ -18,78 +18,19 @@
         </div>
         <div class="container">
             <div class="row col-equalH justify-content-center">
+                @foreach ( $branches as $branch )
                 <div class="col-md-6 col-lg-4">
                     <div class="service-card">
                         <div class="service-card-photo">
-                            <a href="#"><img src="{{asset('images/brancehs/1.jpg')}}" class="img-fluid" alt=""></a>
+                            <a href="#">  <img src="{{asset('images/branches')}}/{{$branch->image}}" width="100%" class="fixed-image-size" alt="Product Image"
+                                class=""></a>
                         </div>
-                        <h5 class="service-card-name"><a href="#">فرع العليا</a></h5>
+                        <h5 class="service-card-name"><a href="#">{{$branch->name}}</a></h5>
                         <div class="h-decor"></div>
-                        <p>Cancer care includes a variety of treatments, systematic therapies, surgery and clinical trials.</p>
-                        <ul class="marker-list-md-line">
-                            <li>Chemotherapy</li>
-                            <li>Hormone therapy</li>
-                            <li>Immunotherapy</li>
-                            <li>Precision genomics</li>
-                            <li>Radiation oncology</li>
-                            <li>Surgical oncology</li>
-                        </ul>
+                        <p>{{Str::limit($branch->brief , 150, '...') }}.</p>     
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-photo">
-                            <a href="#"><img src="{{asset('images/brancehs/2.jpg')}}" class="img-fluid" alt=""></a>
-                        </div>
-                        <h5 class="service-card-name"><a href="#">فرع البديعة</a></h5>
-                        <div class="h-decor"></div>
-                        <p>Treatment for the most complex, advanced heart, lung, and vascular disease problems.</p>
-                        <ul class="marker-list-md-line">
-                            <li>The Advanced Lipid</li>
-                            <li>The Aortopathy Screening</li>
-                            <li>Sports Cardiology</li>
-                            <li>Vascular Regenerative Medicine</li>
-                            <li>Heart and Vascular Clinical Trials</li>
-                            <li>Carotid Stent</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-photo">
-                            <a href="#"><img src="{{asset('images/brancehs/3.jpg')}}" class="img-fluid" alt=""></a>
-                        </div>
-                        <h5 class="service-card-name"><a href="#">فرع جدة</a></h5>
-                        <div class="h-decor"></div>
-                        <p>Your child will receive state-of-the-art oral care from our team</p>
-                        <ul class="marker-list-md-line">
-                            <li>Epilepsy</li>
-                            <li>Movement disorders</li>
-                            <li>Autoimmune neurology</li>
-                            <li>Pediatric neurology</li>
-                            <li>Neurophysiology</li>
-                            <li>Headache</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
-                        <div class="service-card-photo">
-                            <a href="#"><img src="{{asset('images/brancehs/4.jpg')}}" class="img-fluid" alt=""></a>
-                        </div>
-                        <h5 class="service-card-name"><a href="#">فرع عسير</a></h5>
-                        <div class="h-decor"></div>
-                        <p>Neurosurgery treats conditions that affect the brain, spine and nerves, including aneurysms, tumors and injuries.</p>
-                        <ul class="marker-list-md-line">
-                            <li>Brain Tumors</li>
-                            <li>Cerebral Aneurysm</li>
-                            <li>Intracerebral Hemorrhage</li>
-                            <li>Skull and Spine Fractures</li>
-                            <li>Head Injury</li>
-                        </ul>
-                    </div>
-                </div>
-              
+                @endforeach
             </div>
         </div>
     </div>

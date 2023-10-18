@@ -339,8 +339,8 @@
                         <div class="doctor-box-h">
                             <div class="doctor-box-h-photo">
                                 <img src="{{ asset('images/doctors/' . $doctor->image) }}"
-                                alt="" class="fixed-image-doctor">
-                                                        </div>
+                                alt="" style="width: -webkit-fill-available" >
+                                </div>
                             <div class="doctor-box-h-info" dir="rtl" style="text-align: right" >
                                 <h5 class="doctor-box-h-name">الدكتور / {{$doctor->fname}} {{$doctor->lname}} </h5>
                                 <table class="table doctor-box-h-table">

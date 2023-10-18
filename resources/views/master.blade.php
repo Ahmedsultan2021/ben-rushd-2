@@ -45,6 +45,14 @@ namespace App\Models;
         .fixed-size {
             width: 100%;
             /* or whatever fixed width you want */
+            
+            object-fit: cover;
+        }
+
+        .fixed-size-department {
+            width: 100%;
+            /* or whatever fixed width you want */
+            height: 400px;
             object-fit: cover;
         }
         .slick-next{
@@ -523,7 +531,7 @@ namespace App\Models;
                         style="padding: 0px 25px">
                         <a href="{{ route('makeReservation') }}" class="btn btn-primary d-lg-none d-sm-block d-block"
                             style="border-radius: 0px; padding: 3px 5px; margin-right: 20px"><span>حجز موعد</span></a>
-                        <a href="index.html" class="header-logo"><img src="images/logo.png" alt=""
+                        <a href="index.html" class="header-logo"><img src="{{asset('images/logo.png')}}" alt=""
                             class="img-fluid"></a>
                     </div>
                     <div class="col-lg ml-auto header-nav-wrap">
@@ -562,54 +570,21 @@ namespace App\Models;
                                             <a href="{{ route('departments') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">الاقسام</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="our-specialist.html">All
-                                                        Specialists</a></li>
-                                                <li><a class="dropdown-item" href="doctor-page.html">Doctor Page</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="schedule.html">Schedule Table</a>
-                                                </li>
-                                            </ul>
+                                          
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('ourBranches') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">فروعنا</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="our-specialist.html">All
-                                                        Specialists</a></li>
-                                                <li><a class="dropdown-item" href="doctor-page.html">Doctor Page</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="schedule.html">Schedule Table</a>
-                                                </li>
-                                            </ul>
+                                         
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('partners') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">الشركاء</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="our-specialist.html">All
-                                                        Specialists</a></li>
-                                                <li><a class="dropdown-item" href="doctor-page.html">Doctor Page</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="schedule.html">Schedule Table</a>
-                                                </li>
-                                            </ul>
+                                           
                                         </li>
-                                        {{-- <li class="nav-item">
-                                            <a href="{{ route('news') }}" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                style="font-weight: 800 ;opacity: 0.7;;">اخبارنا</a>
-                                            <ul class="dropdown-menu">
-                                                <li><a class="dropdown-item" href="our-specialist.html">All
-                                                        Specialists</a></li>
-                                                <li><a class="dropdown-item" href="doctor-page.html">Doctor Page</a>
-                                                </li>
-                                                <li><a class="dropdown-item" href="schedule.html">Schedule Table</a>
-                                                </li>
-                                            </ul>
-                                        </li> --}}
+                                      
                                     </ul>
                                 </div>
                             </nav>
@@ -618,7 +593,7 @@ namespace App\Models;
                     </div>
                     <div>
                         <a href="{{ route('makeReservation') }}"
-                            class="btn btn-primary p-0 rounded-2 px-1 d-lg-block d-sm-none d-none"><span>حجز
+                            class="btn btn-primary p-0 rounded-2 px-1 d-lg-block d-sm-none d-none "><span>حجز
                                 موعد</span></a>
                     </div>
                 </div>

@@ -1,3 +1,7 @@
+@php
+namespace App\Models;
+
+@endphp
 @extends('master')
 @section('content')
     <!--//quick links-->
@@ -50,47 +54,32 @@
 					
 						
 					</div>
-					<div class="col-lg-3 aside-left mt-5 mt-lg-0">
+					<div class="col-lg-3 aside-right mt-5 mt-lg-0" dir="rtl" style="text-align: start; padding: 0px">
 				
 					
-						<div class="side-block">
-							<h3 class="side-block-title">Recent Posts</h3>
-							<div class="blog-post post-preview">
+						<div class="side-block" dir="rtl" style="text-align: start">
+							<h3 class="side-block-title">المقالات الأخيرة</h3>
+							@php
+							// namespace App\Models;
+							$posts = Post::orderBy('created_at', 'desc')->take(3)->get();
+	
+						     @endphp
+							@foreach ( $posts as $post )
+								
+							<div class="blog-post post-preview" style="display: flex; justify-content: flex-end" dir="rtl">
 								<div class="post-image">
-									<a href="blog-post-page.html"><img src="images/blog/blog-post-featured-1.jpg" alt=""></a>
+									<a href="blog-post-page.html"><img class="fixed-image-size" src="{{asset('images/posts')}}/{{$post->image}}" alt=""></a>
 								</div>
-								<div>
-									<h4 class="post-title"><a href="blog-post-page.html">Are you brushing your teeth correctly?</a></h4>
+								<div class="pr-2">
+									<h4 class="post-title"><a href="blog-post-page.html">{{$post->title}}</a></h4>
 									<div class="post-meta">
-										<div class="post-meta-author text-nowrap">by <a href="#"><i>admin</i></a></div>
+										<div class="post-meta-author text-nowrap">كتب بواسطة <a href="#"><i>{{ $post->user->fname }}</i></a></div>
 										<div class="post-meta-date text-nowrap"><i class="icon icon-clock3"></i>17 Jan, 2018</div>
 									</div>
 								</div>
 							</div>
-							<div class="blog-post post-preview">
-								<div class="post-image">
-									<a href="blog-post-page.html"><img src="images/blog/blog-post-featured-2.jpg" alt=""></a>
-								</div>
-								<div>
-									<h4 class="post-title"><a href="blog-post-page.html">FREE Dental Screening & X-Rays</a></h4>
-									<div class="post-meta">
-										<div class="post-meta-author text-nowrap">by <a href="#"><i>admin</i></a></div>
-										<div class="post-meta-date text-nowrap"><i class="icon icon-clock3"></i>17 Jan, 2018</div>
-									</div>
-								</div>
-							</div>
-							<div class="blog-post post-preview">
-								<div class="post-image">
-									<a href="blog-post-page.html"><img src="images/blog/blog-post-featured-3.jpg" alt=""></a>
-								</div>
-								<div>
-									<h4 class="post-title"><a href="blog-post-page.html">How to Choose the Best Toothbrush</a></h4>
-									<div class="post-meta">
-										<div class="post-meta-author text-nowrap">by <a href="#"><i>admin</i></a></div>
-										<div class="post-meta-date text-nowrap"><i class="icon icon-clock3"></i>17 Jan, 2018</div>
-									</div>
-								</div>
-							</div>
+						
+							@endforeach
 						</div>
 					
 					</div>
