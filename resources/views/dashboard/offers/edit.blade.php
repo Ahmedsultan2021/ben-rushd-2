@@ -14,7 +14,7 @@
 
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">اضافة عرض جديد</h3>
+                                <h3 class="card-title">تعديل عرض </h3>
                             </div>
                             @if ($errors->any())
                             <div class="alert alert-danger">
@@ -89,7 +89,7 @@
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end">
-                                    <button type="submit" class="btn btn-primary">اضافة</button>
+                                    <button type="submit" class="btn btn-primary">تحديث</button>
                                 </div>
                             </form>
                         </div>

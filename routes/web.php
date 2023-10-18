@@ -128,10 +128,19 @@ Route::get('/campaignResponses/{form_id}/{campaign_id?}', function ($form_id, $c
 Route::get('/offersPage/{id?}', function ($id = null) {
     $branches = Branch::pluck("id", "name");
     $offer = Offer::find($id);
-    // dd($branches);
-    $endTime = $offer->created_at->addDays($offer->offerPeriod);
+
+    if (!$offer) {
+        return redirect()->back()->with('error', 'Offer not found.');
+    }
+
+    $endTime = $offer->endTime; // consider renaming this column for clarity
+    // $actualEndTime = $offer->created_at->addDays($durationDays)->toDateTimeString();
+
+    // dd($actualEndTime);
+    
     return view('offersPage', ["branches" => $branches, "offer" => $offer, "endTime" => $endTime]);
 })->name('offersPage');
+
 
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.display');
@@ -157,6 +166,7 @@ Route::middleware(['auth'])->group(function () {
         'create', 'edit', 'index', 'show'
     ]);
     Route::get('/listforms', [FormController::class, 'index'])->name('listforms');
+
     Route::get('/form/{form}/export', [CampaignController::class, 'export'])->name('form.export');
     Route::get('/download/reservations', [ReservationController::class,'downloadReservations'])->name('download.reservations');
     Route::get('/download/offer-reservations',[ReservationController::class,'downloadOfferReservations'])->name('download.offerReservations');

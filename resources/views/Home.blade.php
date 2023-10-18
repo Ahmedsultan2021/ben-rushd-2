@@ -411,8 +411,8 @@
                                     </tbody>
                                 </table>
                                 <div class="doctor-box-h-booking">
-                                    <a href="#" class="btn" data-toggle="modal"
-                                        data-target="#modalBookingForm"><span>حجز موعد</span><i class="icon-left-arrow"></i></a>
+                                    <a href="{{route('makeReservation')}}" class="btn" 
+                                        ><span>حجز موعد</span><i class="icon-left-arrow"></i></a>
                                 </div>
                             </div>
                         </div>

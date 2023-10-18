@@ -128,7 +128,7 @@ class ReservationController extends Controller
         $request->validate([
             'customerName' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
-            'email' => 'required|string|email|max:255',
+            'email' => 'nullable|string|email|max:255',
             'branch_id' => 'required|integer|exists:branches,id',
             'offer_id' => 'nullable|integer|exists:offers,id',
             'survey' => 'nullable|in:internet,sms,WordOfMouth',  // validation for the new field
@@ -157,7 +157,7 @@ class ReservationController extends Controller
         $reservation = new Reservation;
         $reservation->customerName = $request->customerName;
         $reservation->phone = $request->phone;
-        $reservation->email = $request->email;
+        $reservation->email = $request->email?? 'empty';
         $reservation->servey = $request->servey;
         $reservation->branch_id = $request->branch_id;
         $reservation->offer_id = $request->offer_id;

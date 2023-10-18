@@ -19,6 +19,11 @@ class Offer extends Model
         "endTime"
     ];
 
+
+    // protected $casts = [
+    //     'endTime' => 'datetime',
+    // ];
+
     /**
      * Get the user that last updated the offer.
      */

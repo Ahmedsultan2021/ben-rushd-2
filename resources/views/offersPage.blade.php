@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col text-center">
                     <h1>Offer Countdown</h1>
-                    <div id="countdown"   data-deadline="{{ $endTime }}" class="d-flex justify-content-center flex-wrap ">
+                    <div id="countdown"   data-deadline="{{$endTime}}" class="d-flex justify-content-center flex-wrap ">
                         <div class="mr-3 mb-1">
                             <span id="days"></span> Days
                         </div>

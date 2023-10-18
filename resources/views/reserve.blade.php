@@ -3,61 +3,7 @@
 <div class="my-5" >
     
     <div class="page-content" style="direction: rtl; text-align: start">
-        <!--section-->
-        {{-- <div class="section mt-0">
-            <div class="contact-map" id="googleMapContact"></div>
-        </div> --}}
-        <!--//section-->
-        <!--section-->
-        {{-- <div class="section mt-0 bg-grey">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md">
-                        <div class="title-wrap">
-                            <h5>Clinic Location</h5>
-                            <div class="h-decor"></div>
-                        </div>
-                        <ul class="icn-list-lg">
-                            <li><i class="icon-placeholder2"></i> DentCo Dental Clinic
-                                <br>1560 Holden Street San Diego,
-                                <br>CA 92139
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md mt-3 mt-md-0">
-                        <div class="title-wrap">
-                            <h5>Contact Info</h5>
-                            <div class="h-decor"></div>
-                        </div>
-                        <ul class="icn-list-lg">
-                            <li><i class="icon-telephone"></i>Phone: <span class="theme-color"><span class="text-nowrap">1-800-267-0000,</span> <span class="text-nowrap">1-800-267-0001</span>
-                                </span>
-                                <br> Fax: <span class="theme-color"><span class="text-nowrap">(957) 267-0020</span>
-                                </span>
-                            </li>
-                            <li><i class="icon-black-envelope"></i><a href="mailto:info@dentco.net">info@dentco.net</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md mt-3 mt-md-0">
-                        <div class="title-wrap">
-                            <h5>Working Time</h5>
-                            <div class="h-decor"></div>
-                        </div>
-                        <ul class="icn-list-lg">
-                            <li><i class="icon-clock"></i>
-                                <div>
-                                    <div class="d-flex"><span>Mon-Thu</span><span class="theme-color">08:00 - 20:00</span></div>
-                                    <div class="d-flex"><span>Friday</span><span class="theme-color">07:00 - 22:00</span></div>
-                                    <div class="d-flex"><span>Saturday</span><span class="theme-color">08:00 - 18:00</span></div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        <!--//section-->
-        <!--section-->
+       
         <div class="section">
             <div class="container">
                 <div class="row">
@@ -87,7 +33,7 @@
                         <label>
                             <input type="checkbox" class="alertCheckbox" autocomplete="off" />
                             <div class="alert success">
-                              <span class="alertText"> {{ session('success') }}
+                              <span class="alertText"> تم حجز الموعد بنجاح
 
                               <br class="clear"/></span>
                             </div>
@@ -115,27 +61,27 @@
                                 <p>Something went wrong, try refreshing and submitting the form again.</p>
                             </div>
                             <div>
-                                <input type="text" class="form-control" name="customerName" placeholder="*اسمك" value="{{ old('customerName') }}">
+                                <input type="text" class="form-control" name="customerName" required placeholder="*اسمك" value="{{ old('customerName') }}">
 
                                 @if ($errors->has('customerName'))
                                     <span class="text-danger">{{ $errors->first('customerName') }}</span>
                                 @endif
                             </div>
                             <div class="mt-15">
-                                <input type="text" class="form-control" name="phone" placeholder="*الجوال" value="{{old('phone')}}">
-                                   @error('phone')
+                                <input type="text" class="form-control" name="phone" required placeholder="*الجوال" value="{{old('phone')}}">
+                                   @error('phone') 
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="mt-15">
-                                <input type="text" class="form-control" name="email" placeholder="*البريد الالكتروني" value="{{old('email')}}">
+                                <input type="text" class="form-control" name="email" placeholder="البريد الالكتروني" value="{{old('email')}}">
                                    @error('email')
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
                         
                             <div class="mt-15">
-                                <select class="form-control" name="servay"  aria-label="Default select example">
+                                <select class="form-control" name="servay" required  aria-label="Default select example">
                                     <option value="">كيف سمعت عن المركز</option>
                                     <option value="internet">  الانترنت </option>
                                     <option value="sms">  رسائل الجوال </option>
@@ -146,7 +92,7 @@
                                 @enderror
                             </div>
                             <div class="mt-15">
-                                <select class="form-control" name="branch_id" id="branchDropdown" aria-label="Default select example">
+                                <select class="form-control" required name="branch_id" id="branchDropdown" aria-label="Default select example">
                                     <option value="" {{ old('branch_id') ? '' : 'selected' }}>اختر الفرع</option>
                                     @foreach ($branches as $id => $name)
                                         <option value="{{ $id }}" {{ old('branch_id') == $id ? 'selected' : '' }}>
@@ -159,7 +105,7 @@
                                 @enderror
                             </div>
                             <div class="mt-15">
-                                <select class="form-control" name="doctor_id" id="doctorDropdown" aria-label="Default select example">
+                                <select class="form-control" required name="doctor_id" id="doctorDropdown" aria-label="Default select example">
                                     <option value="" {{ old('doctor_id') ? '' : 'selected' }}>اختر الطبيب</option>
                                     <!-- Dynamic population will be handled by JS -->
                                 </select>

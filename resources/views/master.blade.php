@@ -491,8 +491,7 @@ namespace App\Models;
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-auto d-flex align-items-center">
-                        {{-- <div class="header-info"><i class="icon-placeholder2"></i>{{ $about['address'] }}
-                        </div> --}}
+                        
                         <div class="header-phone"><i class="icon-telephone"></i><a
                                 href="tel:{{ $about['phone_number'] }}">{{ $about['phone_number'] }}</a></div>
                         <div class="header-info"><i class="icon-black-envelope"></i><a
@@ -759,32 +758,55 @@ namespace App\Models;
 
     <link href="{{ asset('vendor/bootstrap/bootstrap.min.js') }}" rel="stylesheet">
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Set the date we're counting down to from the data-deadline attribute
-            var countDownDate = new Date(document.getElementById("countdown").getAttribute("data-deadline"))
-                .getTime();
+    document.addEventListener('DOMContentLoaded', function() {
+    // Get the deadline from the data-deadline attribute
+    let deadline = new Date(document.getElementById("countdown").getAttribute("data-deadline"));
 
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-                var now = new Date().getTime();
-                var distance = countDownDate - now;
+    // Function to compute the remaining time
+    function getTimeRemaining(endtime) {
+        const total = Date.parse(endtime) - Date.parse(new Date());
+        const seconds = Math.floor((total / 1000) % 60);
+        const minutes = Math.floor((total / 1000 / 60) % 60);
+        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+        const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        return {
+            'total': total,
+            'days': days,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
 
-                document.getElementById("days").innerHTML = days;
-                document.getElementById("hours").innerHTML = hours;
-                document.getElementById("minutes").innerHTML = minutes;
-                document.getElementById("seconds").innerHTML = seconds;
+    function initializeClock(id, endtime) {
+        const clock = document.getElementById(id);
+        const daysSpan = clock.querySelector('#days');
+        const hoursSpan = clock.querySelector('#hours');
+        const minutesSpan = clock.querySelector('#minutes');
+        const secondsSpan = clock.querySelector('#seconds');
 
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("countdown").innerHTML = "OFFER EXPIRED";
-                }
-            }, 1000);
-        });
+        function updateClock() {
+            const t = getTimeRemaining(endtime);
+
+            daysSpan.innerHTML = t.days;
+            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+            if (t.total <= 0) {
+                clearInterval(timeinterval);
+                clock.innerHTML = "OFFER EXPIRED";
+            }
+        }
+
+        updateClock();  // run function once at first to avoid delay
+        const timeinterval = setInterval(updateClock, 1000);
+    }
+
+    initializeClock('countdown', deadline);
+});
+
         $('#carouselExampleSlidesOnly').slick();
     $(document).ready(function() {
         $('.delete-btn').on('click', function(e) {
