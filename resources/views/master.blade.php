@@ -578,12 +578,12 @@ namespace App\Models;
                                                 style="font-weight: 800 ;opacity: 0.7;;">فروعنا</a>
                                          
                                         </li>
-                                        <li class="nav-item">
+                                        {{-- <li class="nav-item">
                                             <a href="{{ route('partners') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">الشركاء</a>
                                            
-                                        </li>
+                                        </li> --}}
                                       
                                     </ul>
                                 </div>
