@@ -36,7 +36,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $now = now();
-    $offers = Offer::where('startTime','<=',$now)->where('endTime','>=',$now)->get();
+    $offers = Offer::where('startTime','<=',$now)->where('endTime','>=',$now)->where('active',true)->get();
     // dd($offers);
     $branches = Branch::all();
     $departments = Department::all();

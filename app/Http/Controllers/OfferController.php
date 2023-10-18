@@ -61,7 +61,7 @@ class OfferController extends Controller
         $offer = new Offer([
             'title' => $request->input('title'),
             'description' => $request->input('description'),
-            'active' => $request->input('active') === 'true' ? true : false,
+            'active' => $request->input('active') === '1' ? 1 : 0,
             'startTime' => $request->input('startTime'),
             'endTime' => $request->input('endTime'),
             'image' => $imageName,
@@ -94,6 +94,7 @@ class OfferController extends Controller
      */
     public function edit(Offer $offer)
     {
+        // dd($offer);
         return view('dashboard.offers.edit', ["offer" => $offer]);
     }
 
@@ -111,9 +112,11 @@ class OfferController extends Controller
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'active' => 'required|in:true,false',
-            'offerPeriod' => 'required|integer|min:1',
+            'startTime' => 'required|date_format:Y-m-d\TH:i',
+            'endTime' => 'required|date_format:Y-m-d\TH:i|after:startTime',
+            // 'offerPeriod' => 'required|integer|min:1',
         ]);
+
 
         // Handle image upload if provided
         if ($request->hasFile('image')) {
@@ -132,8 +135,9 @@ class OfferController extends Controller
 
         $offer->title = $request->input('title');
         $offer->description = $request->input('description');
-        $offer->active = $request->input('active') === 'true' ? true : false;
-        $offer->offerPeriod = $request->input('offerPeriod');
+        $offer->active = $request->input('active') == '1' ? 1 : 0;
+        $offer->startTime = $request->input('startTime');
+        $offer->endTime = $request->input('endTime');
         $offer->updated_by = Auth::user()->id;
 
         $offer->save();
