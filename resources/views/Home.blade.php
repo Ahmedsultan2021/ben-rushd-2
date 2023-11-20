@@ -104,10 +104,10 @@
                     <h2 class="h1">مركز بن رشد الطبي للعيون<br>
                          <span class="theme-color">الفروع ومواعيد العمل</span></h2>
                 </div>
-                <div class="nav nav-pills-simple" role="tablist" style="direction: rtl">
+                <div class="nav nav-pills-simple font-weight-bold"  role="tablist" style="direction: rtl">
                     @foreach ($branches as $branch)
-                        <a class="nav-link {{ $loop->first ? 'active' : '' }}" data-toggle="pill"
-                            href="#tab-{{ $branch->id }}" role="tab">
+                        <a class="nav-link font-weight-bold {{ $loop->first ? 'active' : '' }}" data-toggle="pill"
+                            href="#tab-{{ $branch->id }}" role="tab" style="font-size: 2rem">
                             {{ $branch->name }}
                         </a>
                     @endforeach

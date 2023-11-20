@@ -571,14 +571,12 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('departments') }}" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown"
+                                            <a href="{{ route('departments') }}" class="nav-link link-inside"
                                                 style="font-weight: 800 ;opacity: 0.7;;">الاقسام</a>
 
                                         </li>
                                         <li class="nav-item">
-                                            <a href="{{ route('ourBranches') }}" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown"
+                                            <a href="{{ route('ourBranches') }}" class="nav-link link-inside"
                                                 style="font-weight: 800 ;opacity: 0.7;;">فروعنا</a>
 
                                         </li>
