@@ -6,7 +6,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>اضف مقالة</h1>
+                        <h1>اضف قسم</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -17,8 +17,7 @@
                 </div>
             </div><!-- /.container-fluid -->
         </section>
-     
-
+    
         <!-- Main content -->
         <div class="container">
 
@@ -52,7 +51,7 @@
                                         @endforeach
                                     </ul>
                                 </div>
-                            @endif
+                                @endif
                                 <form action="{{ route('department.store') }}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">

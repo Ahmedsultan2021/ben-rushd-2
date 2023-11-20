@@ -29,7 +29,7 @@
                         <h5 class="service-card-name"><a href="{{route('reportpage',["branch_id"=>$branch->id])}}"> {{$branch->name}} </a></h5>
                         <div class="h-decor"></div>
                         <div class="d-flex justify-content-center" >
-                            <a name="" id="" class="btn btn-primary rounded-0" style="padding: 0px"  href="#" role="button">طلب تقرير طبي</a>
+                            <a name="" id="" class="btn btn-primary rounded-0 p-1" style="padding: 0px" href="{{route('reportpage',["branch_id"=>$branch->id])}}" role="button">طلب تقرير طبي</a>
                         </div>
                     </div> 
                 </div>

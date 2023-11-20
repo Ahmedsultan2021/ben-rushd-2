@@ -236,7 +236,7 @@
                             <div class="mt-2 mt-lg-4"></div>
                             <div class="faq-item" dir="rtl" >
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem1"
-                                    aria-expanded="true"><span>1.</span><span style="padding: 0px 10px 0px 20px">  أول مركز في العالم تجرى فيه عملية Femto Epith Ingrowth Removal. 
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أول مركز في العالم تجرى فيه عملية Femto Epith Ingrowth Removal. 
                                     </span></a>
                                 <div id="faqItem1" class="collapse  faq-item-content" role="tabpanel">
                                     <div>
@@ -250,7 +250,7 @@
         
                             <div class="faq-item" dir="rtl" >
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem2"
-                                    aria-expanded="true"><span>2.</span><span style="padding: 0px 10px 0px 20px"> أول مركز في الشرق الأوسط تجرى فيه عملية زراعة القرنية LKP بالتخدير السطحي.
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px"> أول مركز في الشرق الأوسط تجرى فيه عملية زراعة القرنية LKP بالتخدير السطحي.
  
                                     </span></a>
                                 <div id="faqItem2" class="collapse  faq-item-content" role="tabpanel">
@@ -265,7 +265,7 @@
         
                             <div class="faq-item" dir="rtl" >
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem3"
-                                    aria-expanded="true"><span>3.</span><span style="padding: 0px 10px 0px 20px"> أول مركز في المملكة تجرى فيه عملية زراعة القزحية.
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px"> أول مركز في المملكة تجرى فيه عملية زراعة القزحية.
  
                                     </span></a>
                                 <div id="faqItem3" class="collapse  faq-item-content" role="tabpanel">
@@ -280,7 +280,7 @@
         
                             <div class="faq-item" dir="rtl" >
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem4"
-                                    aria-expanded="true"><span>4.</span><span style="padding: 0px 10px 0px 20px">  أول مركز في الرياض تجرى فيه زراعة الطبقة المبطنة للقرنية.
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أول مركز في الرياض تجرى فيه زراعة الطبقة المبطنة للقرنية.
  
                                     </span></a>
                                 <div id="faqItem4" class="collapse  faq-item-content" role="tabpanel">
@@ -295,7 +295,7 @@
         
                             <div class="faq-item" dir="rtl" >
                                 <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem5"
-                                    aria-expanded="true"><span>5.</span><span style="padding: 0px 10px 0px 20px">  أكثر مركز خاص تجرى فيه زراعة العدسات المتقدمة بعد إزالة الماء الأبيض.
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أكثر مركز خاص تجرى فيه زراعة العدسات المتقدمة بعد إزالة الماء الأبيض.
 
  
                                     </span></a>

@@ -52,19 +52,19 @@ class FormController extends Controller
         ]);
 
 
-        $form = Form::find($request->form_id);
-        if (!$form) {
-            return response()->json(['message' => 'Form not found'], 404);
-        }
+        // $form = Form::find($request->form_id);
+        // if (!$form) {
+        //     return response()->json(['message' => 'Form not found'], 404);
+        // }
     
-        // Assuming a form can belong to multiple campaigns, let's check if there's any active campaign for this form.
-        $activeCampaign = $form->campaigns()->where('startTime', '<=', now())
-            ->where('endTime', '>=', now())
-            ->first();
+        // // Assuming a form can belong to multiple campaigns, let's check if there's any active campaign for this form.
+        // $activeCampaign = $form->campaigns()->where('startTime', '<=', now())
+        //     ->where('endTime', '>=', now())
+        //     ->first();
     
-        if (!$activeCampaign) {
-            return response()->json(['message' => 'No active campaign for this form'], 400);
-        }
+        // if (!$activeCampaign) {
+        //     return response()->json(['message' => 'No active campaign for this form'], 400);
+        // }
 
         // Begin Transaction
         DB::beginTransaction();

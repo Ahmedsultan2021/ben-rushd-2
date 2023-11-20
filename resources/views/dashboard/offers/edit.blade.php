@@ -23,8 +23,8 @@
                                         <li>{{ $error }}</li>
                                     @endforeach
                                 </ul>
-                            </div>
-                        @endif
+                            ` </div>
+                            @endif
                             <form role="form" method="POST" enctype="multipart/form-data" action="{{route('offer.update',["offer"=>$offer->id])}}">
                                 @csrf
                                 @method('PATCH')

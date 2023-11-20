@@ -36,29 +36,29 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
 
     $now = now();
-    $offers = Offer::where('startTime','<=',$now)->where('endTime','>=',$now)->where('active',true)->get();
+    $offers = Offer::where('startTime', '<=', $now)->where('endTime', '>=', $now)->where('active', true)->get();
     // dd($offers);
     $branches = Branch::all();
     $departments = Department::all();
-    $doctors = Doctor::where('highligthed',1)->get();
+    $doctors = Doctor::where('highligthed', 1)->get();
 
 
-    
+
 
     $contact = config('about');
-    return view('Home', ["offers" => $offers,"about"=>$contact,"departments"=>$departments,"branches"=>$branches,"doctors"=>$doctors]);
+    return view('Home', ["offers" => $offers, "about" => $contact, "departments" => $departments, "branches" => $branches, "doctors" => $doctors]);
 })->name('home');
-Route::get('/about-us', [AboutController::class,'index'])->name('about-us');
+Route::get('/about-us', [AboutController::class, 'index'])->name('about-us');
 Route::get('/AskForReport', function () {
     $branches = Branch::all();
     return view('AskForReport', ["branches" => $branches]);
 })->name('AskForReport');
 Route::get('/reportpage/{branch_id}', function ($branch_id) {
     $branch = Branch::find($branch_id);
-    $doctors = $branch->doctors; 
+    $doctors = $branch->doctors;
     $contact = config('about');
 
-    return view('reportpage', ["branch_id" => $branch,"branch"=>$branch, "doctors" => $doctors,"about"=>$contact]);
+    return view('reportpage', ["branch_id" => $branch->id, "branch" => $branch, "doctors" => $doctors, "about" => $contact]);
 })->name('reportpage');
 Route::get('/makeReservation', function () {
     $branches = Branch::pluck("name", "id");
@@ -78,21 +78,21 @@ Route::get('/showPost', function () {
 Route::get('/doctors', function () {
     $doctors = Doctor::all();
     $distinctDepartmentNames = Department::distinct('name')->pluck('name')->toArray();
-    return view('doctors',["doctors"=>$doctors,"distinctDepartmentNames"=>$distinctDepartmentNames]);
+    return view('doctors', ["doctors" => $doctors, "distinctDepartmentNames" => $distinctDepartmentNames]);
 })->name('doctors');
 Route::get('/singleDoctors/{id}', function ($id) {
     $doctor = Doctor::findOrFail($id);
-    return view('doctor',["doctor"=>$doctor]);
+    return view('doctor', ["doctor" => $doctor]);
 })->name('doctor');
 
 Route::get('/departments', function () {
     $departments = Department::all();
-    return view('departments',["departments"=>$departments]);
+    return view('departments', ["departments" => $departments]);
 })->name('departments');
 Route::get('/ourBranches', function () {
-    $branches = Branch::where('active','1')->get();
-    
-    return view('ourBranches',["branches"=>$branches]);
+    $branches = Branch::where('active', '1')->get();
+
+    return view('ourBranches', ["branches" => $branches]);
 })->name('ourBranches');
 Route::get('/partners', function () {
     return view('partners');
@@ -102,7 +102,7 @@ Route::get('/news', function () {
 })->name('news');
 Route::get('/blog-post-page/{id?}', function ($id = null) {
     $post = Post::find($id);
-    return view('blog-post-page',["post"=>$post]);
+    return view('blog-post-page', ["post" => $post]);
 })->name('blog-post-page');
 
 // Define a route for 404 errors
@@ -137,23 +137,25 @@ Route::get('/offersPage/{id?}', function ($id = null) {
     // $actualEndTime = $offer->created_at->addDays($durationDays)->toDateTimeString();
 
     // dd($actualEndTime);
-    
+
     return view('offersPage', ["branches" => $branches, "offer" => $offer, "endTime" => $endTime]);
 })->name('offersPage');
 
 
 
 Route::get('/about', [AboutController::class, 'index'])->name('about.display');
+Route::post('report', [ReportController::class, 'store'])->name('report.store');
+
 
 Route::middleware(['auth'])->group(function () {
-    
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     Route::get('/about/edit', [AboutController::class, 'edit'])->name('about.edit');
     Route::post('/about/save', [AboutController::class, 'update'])->name('about.save');
-    Route::resource('report', ReportController::class);
+    Route::resource('report', ReportController::class)->except(['store']);
     Route::resource('branches', BranchController::class);
     Route::resource('post', PostController::class);
     Route::resource('department', DepartmentController::class);
@@ -168,8 +170,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/listforms', [FormController::class, 'index'])->name('listforms');
 
     Route::get('/form/{form}/export', [CampaignController::class, 'export'])->name('form.export');
-    Route::get('/download/reservations', [ReservationController::class,'downloadReservations'])->name('download.reservations');
-    Route::get('/download/offer-reservations',[ReservationController::class,'downloadOfferReservations'])->name('download.offerReservations');
+    Route::get('/download/reservations', [ReservationController::class, 'downloadReservations'])->name('download.reservations');
+    Route::get('/download/offer-reservations', [ReservationController::class, 'downloadOfferReservations'])->name('download.offerReservations');
 });
 
 

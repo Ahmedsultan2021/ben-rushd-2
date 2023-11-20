@@ -11,7 +11,7 @@ return array (
   'twitter_link' => 'https://twitter.com/example',
   'instagram_link' => 'https://instagram.com/example',
   'linked_link' => 'https://instagram.com/example',
-  'youtupe_link' => 'https://soundcloud.com/discover',
+  'youtupe_link' => 'https://www.youtube.com/user/Binrushd',
   'phone_number' => '201207518168',
   'whats_number' => '201207518168',
   'address' => '123 Main St, Anytown',

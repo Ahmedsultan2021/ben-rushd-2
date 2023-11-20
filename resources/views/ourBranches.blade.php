@@ -20,12 +20,12 @@
             <div class="row col-equalH justify-content-center">
                 @foreach ( $branches as $branch )
                 <div class="col-md-6 col-lg-4">
-                    <div class="service-card">
+                    <div class="service-card" dir="rtl" style="text-align: right">
                         <div class="service-card-photo">
-                            <a href="#">  <img src="{{asset('images/branches')}}/{{$branch->image}}" width="100%" class="fixed-image-size" alt="Product Image"
-                                class=""></a>
+                              <img src="{{asset('images/branches')}}/{{$branch->image}}" width="100%" class="fixed-image-size" alt="Product Image"
+                                class="">
                         </div>
-                        <h5 class="service-card-name"><a href="#">{{$branch->name}}</a></h5>
+                        <h5 class="service-card-name">{{$branch->name}}</h5>
                         <div class="h-decor"></div>
                         <p>{{Str::limit($branch->brief , 150, '...') }}.</p>     
                     </div>

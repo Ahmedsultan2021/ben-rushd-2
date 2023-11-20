@@ -6,7 +6,9 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Exports\ReservationsExport;
 use App\Exports\OfferReservationsExport;
+use App\Mail\RservationConfirmationEmail;
 use App\Models\Offer;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ReservationController extends Controller
@@ -167,6 +169,8 @@ class ReservationController extends Controller
             $reservation->isOffer = false;
         }
         $reservation->save();
+        
+        Mail::to($reservation->email)->send(new RservationConfirmationEmail($reservation));
 
         // Redirect with a success message
         return redirect()->back()->with('success', 'Reservation created successfully.');

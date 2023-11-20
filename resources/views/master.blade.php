@@ -1,5 +1,5 @@
 @php
-namespace App\Models;
+    namespace App\Models;
 
 @endphp
 <!DOCTYPE html>
@@ -28,7 +28,7 @@ namespace App\Models;
 
     {{-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
 
     <!--Favicon-->
     <link rel="shortcut icon" href="{{ asset('images/logo.png') }}" type="image/x-icon">
@@ -45,7 +45,7 @@ namespace App\Models;
         .fixed-size {
             width: 100%;
             /* or whatever fixed width you want */
-            
+
             object-fit: cover;
         }
 
@@ -55,20 +55,24 @@ namespace App\Models;
             height: 400px;
             object-fit: cover;
         }
-        .slick-next{
+
+        .slick-next {
             width: 30px;
             height: 30px;
-            margin-right: 20px; 
+            margin-right: 20px;
         }
-        .slick-next:before{
+
+        .slick-next:before {
             line-height: 15px
         }
-        .slick-prev{
+
+        .slick-prev {
             width: 30px;
             height: 30px;
-            margin-left: 20px; 
+            margin-left: 20px;
         }
-        .slick-prev:before{
+
+        .slick-prev:before {
             line-height: 15px
         }
 
@@ -77,6 +81,7 @@ namespace App\Models;
             max-height: 370px;
             object-fit: cover
         }
+
         .fixed-image-post {
             width: 50px;
             height: 50px;
@@ -477,7 +482,7 @@ namespace App\Models;
 <body class="shop-page layout-landing-2">
     @php
         $about = config('about');
-        
+
     @endphp
     <!--header-->
 
@@ -491,7 +496,7 @@ namespace App\Models;
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-auto d-flex align-items-center">
-                        
+
                         <div class="header-phone"><i class="icon-telephone"></i><a
                                 href="tel:{{ $about['phone_number'] }}">{{ $about['phone_number'] }}</a></div>
                         <div class="header-info"><i class="icon-black-envelope"></i><a
@@ -499,12 +504,12 @@ namespace App\Models;
                         </div>
                     </div>
                     <div class="col-auto ml-auto d-flex align-items-center">
-                        <span class="header-social d-flex" style="gap: 15px" >
-                            <a href="{{ $about['facebook_link'] }}">  <i class="fab fa-facebook-f"></i> </a>
+                        <span class="header-social d-flex" style="gap: 15px">
+                            <a href="{{ $about['facebook_link'] }}"> <i class="fab fa-facebook-f"></i> </a>
 
-                            <a href="{{$about['twitter_link']}}"> <i class="fab fa-twitter"></i> </a>
+                            <a href="{{ $about['twitter_link'] }}"> <i class="fab fa-twitter"></i> </a>
 
-                            <a href="mailto:{{$about['email']}}"> <i class="fab fa-google"></i> </a>
+                            <a href="mailto:{{ $about['email'] }}"> <i class="fab fa-google"></i> </a>
 
                             <a href="{{ $about['instagram_link'] }}"> <i class="fab fa-instagram"></i> </a>
 
@@ -512,9 +517,10 @@ namespace App\Models;
 
                             <a href="{{ $about['youtupe_link'] }}"> <i class="fab fa-youtube"></i> </a>
 
-                            <a href="https://api.whatsapp.com/send?phone={{ $about['whats_number'] }}&text=السلام عليكم" target="_blank">
+                            <a href="https://api.whatsapp.com/send?phone={{ $about['whats_number'] }}&text=السلام عليكم"
+                                target="_blank">
                                 <i class="fab fa-whatsapp"></i>
-                              </a> 
+                            </a>
                         </span>
                     </div>
                 </div>
@@ -530,8 +536,8 @@ namespace App\Models;
                         style="padding: 0px 25px">
                         <a href="{{ route('makeReservation') }}" class="btn btn-primary d-lg-none d-sm-block d-block"
                             style="border-radius: 0px; padding: 3px 5px; margin-right: 20px"><span>حجز موعد</span></a>
-                        <a href="index.html" class="header-logo"><img src="{{asset('images/logo.png')}}" alt=""
-                            class="img-fluid"></a>
+                        <a href="{{ route('home') }}" class="header-logo"><img src="{{ asset('images/logo.png') }}"
+                                alt="" class="img-fluid"></a>
                     </div>
                     <div class="col-lg ml-auto header-nav-wrap">
                         <div class="header-nav js-header-nav">
@@ -564,26 +570,18 @@ namespace App\Models;
                                                 style="font-weight: 800; opacity: 0.7; ">الاطباء
                                             </a>
                                         </li>
-
                                         <li class="nav-item">
                                             <a href="{{ route('departments') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">الاقسام</a>
-                                          
+
                                         </li>
                                         <li class="nav-item">
                                             <a href="{{ route('ourBranches') }}" class="nav-link dropdown-toggle"
                                                 data-toggle="dropdown"
                                                 style="font-weight: 800 ;opacity: 0.7;;">فروعنا</a>
-                                         
+
                                         </li>
-                                        {{-- <li class="nav-item">
-                                            <a href="{{ route('partners') }}" class="nav-link dropdown-toggle"
-                                                data-toggle="dropdown"
-                                                style="font-weight: 800 ;opacity: 0.7;;">الشركاء</a>
-                                           
-                                        </li> --}}
-                                      
                                     </ul>
                                 </div>
                             </nav>
@@ -599,13 +597,13 @@ namespace App\Models;
             </div>
         </div>
     </header>
-    <div style="background-color: #950000" class="d-md-none" >
-        <div class="header-social d-flex justify-content-center" style="gap: 20px; padding: 5px 0px" >
-            <a href="{{ $about['facebook_link'] }}">  <i class="fab fa-facebook-f" style="color: white"></i> </a>
+    <div style="background-color: #950000" class="d-md-none">
+        <div class="header-social d-flex justify-content-center" style="gap: 20px; padding: 5px 0px">
+            <a href="{{ $about['facebook_link'] }}"> <i class="fab fa-facebook-f" style="color: white"></i> </a>
 
-            <a href="{{$about['twitter_link']}}"> <i class="fab fa-twitter" style="color: white"></i> </a>
+            <a href="{{ $about['twitter_link'] }}"> <i class="fab fa-twitter" style="color: white"></i> </a>
 
-            <a href="mailto:{{$about['email']}}"> <i class="fab fa-google" style="color: white"></i> </a>
+            <a href="mailto:{{ $about['email'] }}"> <i class="fab fa-google" style="color: white"></i> </a>
 
             <a href="{{ $about['instagram_link'] }}"> <i class="fab fa-instagram" style="color: white"></i> </a>
 
@@ -613,9 +611,10 @@ namespace App\Models;
 
             <a href="{{ $about['youtupe_link'] }}"> <i class="fab fa-youtube" style="color: white"></i> </a>
 
-            <a href="https://api.whatsapp.com/send?phone={{ $about['whats_number'] }}&text=السلام عليكم" target="_blank">
+            <a href="https://api.whatsapp.com/send?phone={{ $about['whats_number'] }}&text=السلام عليكم"
+                target="_blank">
                 <i class="fab fa-whatsapp" style="color: white"></i>
-              </a> 
+            </a>
         </div>
 
     </div>
@@ -643,15 +642,19 @@ namespace App\Models;
                         </div>
                         <div class="col-md ">
                             <div class=" text-right mt-1 mt-lg-2">
-                                <p   >نفخر دائما برعايتك #عيونك_أمانة
+                                <p>نفخر دائما برعايتك #عيونك_أمانة
                                 </p>
 
                             </div>
                             <div class="footer-social d-md-none d-lg-block">
-                                <a href="{{ $about['facebook_link'] }}" target="blank" class="hovicon"><i class="icon-facebook-logo"></i></a>
-                                <a href="{{$about['twitter_link']}}" target="blank" class="hovicon"><i class="icon-twitter-logo"></i></a>
-                                <a href="mailto:{{$about['email']}}" target="blank" class="hovicon"><i class="icon-google-logo"></i></a>
-                                <a href="{{ $about['instagram_link'] }}" target="blank" class="hovicon"><i class="icon-instagram"></i></a>
+                                <a href="{{ $about['facebook_link'] }}" target="blank" class="hovicon"><i
+                                        class="icon-facebook-logo"></i></a>
+                                <a href="{{ $about['twitter_link'] }}" target="blank" class="hovicon"><i
+                                        class="icon-twitter-logo"></i></a>
+                                <a href="mailto:{{ $about['email'] }}" target="blank" class="hovicon"><i
+                                        class="icon-google-logo"></i></a>
+                                <a href="{{ $about['instagram_link'] }}" target="blank" class="hovicon"><i
+                                        class="icon-instagram"></i></a>
                             </div>
                         </div>
                     </div>
@@ -661,23 +664,26 @@ namespace App\Models;
                     <div class="h-decor"></div>
                     @php
                         // namespace App\Models;
-                        $posts = Post::orderBy('created_at', 'desc')->take(3)->get();
+                        $posts = Post::orderBy('created_at', 'desc')
+                            ->take(3)
+                            ->get();
 
                     @endphp
-                    @forelse ( $posts as $post )
-                        
-                    <div class="footer-post d-flex">
-                        <div class="footer-post-photo"><img src="{{asset('images/posts')}}/{{$post->image}}"
-                                alt="" class="fixed-image-post"></div>
-                        <div class="footer-post-text">
-                            <div class="footer-post-title"><a href="#">{{$post->title}}</a></div>
-                            <p>{{ \Carbon\Carbon::parse($post->created_at)->format('F d, Y') }}</p>
+                    @forelse ($posts as $post)
+                        <div class="footer-post d-flex">
+                            <div class="footer-post-photo"><img
+                                    src="{{ asset('images/posts') }}/{{ $post->image }}" alt=""
+                                    class="fixed-image-post"></div>
+                            <div class="footer-post-text">
+                                <div class="footer-post-title"><a
+                                        href="{{ route('blog-post-page', ['id' => $post->id]) }}">{{ $post->title }}</a>
+                                </div>
+                                <p>{{ \Carbon\Carbon::parse($post->created_at)->format('F d, Y') }}</p>
+                            </div>
                         </div>
-                    </div>
                     @empty
-                        
-                    @endforelse 
-                  
+                    @endforelse
+
                 </div>
                 <div class="col-sm-6 col-lg-4" style="direction: rtl">
                     <h3>تواصل معنا</h3>
@@ -709,10 +715,11 @@ namespace App\Models;
         <div class="footer-bottom">
             <div class="container">
                 <div class="row text-center text-md-left">
-                    <div class="col-sm">جميع الحقوق محفوظة © 2019 <a href="#">بن
+                    <div class="col-sm">جميع الحقوق محفوظة © <span id="currentYear"></span> <a href="#"> - بن
                             رشد</a><span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;</span>
-                        <a href="#">Privacy Policy</a>
+                        <a href="#">السياسات والخصوصية</a>
                     </div>
+
                     {{-- <div class="col-sm-auto ml-auto"><span class="d-none d-sm-inline">For emergency
                             cases&nbsp;&nbsp;&nbsp;</span><i
                             class="icon-telephone"></i>&nbsp;&nbsp;<b>1-800-267-0000</b></div> --}}
@@ -758,77 +765,80 @@ namespace App\Models;
 
     <link href="{{ asset('vendor/bootstrap/bootstrap.min.js') }}" rel="stylesheet">
     <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Get the deadline from the data-deadline attribute
-    let deadline = new Date(document.getElementById("countdown").getAttribute("data-deadline"));
+        // Get the current year
+        var currentYear = new Date().getFullYear();
 
-    // Function to compute the remaining time
-    function getTimeRemaining(endtime) {
-        const total = Date.parse(endtime) - Date.parse(new Date());
-        const seconds = Math.floor((total / 1000) % 60);
-        const minutes = Math.floor((total / 1000 / 60) % 60);
-        const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
-        const days = Math.floor(total / (1000 * 60 * 60 * 24));
+        // Set the current year in the HTML element
+        document.getElementById("currentYear").innerHTML = currentYear;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the deadline from the data-deadline attribute
+            let deadline = new Date(document.getElementById("countdown").getAttribute("data-deadline"));
 
-        return {
-            'total': total,
-            'days': days,
-            'hours': hours,
-            'minutes': minutes,
-            'seconds': seconds
-        };
-    }
+            // Function to compute the remaining time
+            function getTimeRemaining(endtime) {
+                const total = Date.parse(endtime) - Date.parse(new Date());
+                const seconds = Math.floor((total / 1000) % 60);
+                const minutes = Math.floor((total / 1000 / 60) % 60);
+                const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
+                const days = Math.floor(total / (1000 * 60 * 60 * 24));
 
-    function initializeClock(id, endtime) {
-        const clock = document.getElementById(id);
-        const daysSpan = clock.querySelector('#days');
-        const hoursSpan = clock.querySelector('#hours');
-        const minutesSpan = clock.querySelector('#minutes');
-        const secondsSpan = clock.querySelector('#seconds');
-
-        function updateClock() {
-            const t = getTimeRemaining(endtime);
-
-            daysSpan.innerHTML = t.days;
-            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-            if (t.total <= 0) {
-                clearInterval(timeinterval);
-                clock.innerHTML = "OFFER EXPIRED";
+                return {
+                    'total': total,
+                    'days': days,
+                    'hours': hours,
+                    'minutes': minutes,
+                    'seconds': seconds
+                };
             }
-        }
 
-        updateClock();  // run function once at first to avoid delay
-        const timeinterval = setInterval(updateClock, 1000);
-    }
+            function initializeClock(id, endtime) {
+                const clock = document.getElementById(id);
+                const daysSpan = clock.querySelector('#days');
+                const hoursSpan = clock.querySelector('#hours');
+                const minutesSpan = clock.querySelector('#minutes');
+                const secondsSpan = clock.querySelector('#seconds');
 
-    initializeClock('countdown', deadline);
-});
+                function updateClock() {
+                    const t = getTimeRemaining(endtime);
 
-        $('#carouselExampleSlidesOnly').slick();
-    $(document).ready(function() {
-        $('.delete-btn').on('click', function(e) {
-            e.preventDefault();
-            var form = $(this).closest('.delete-form');
+                    daysSpan.innerHTML = t.days;
+                    hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+                    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+                    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
 
-            $.confirm({
-                title: 'Confirm!',
-                content: 'Are you sure you want to delete?',
-                buttons: {
-                    confirm: function() {
-                        form.submit();
-                    },
-                    cancel: function() {
-                        // close the dialog
+                    if (t.total <= 0) {
+                        clearInterval(timeinterval);
+                        clock.innerHTML = "OFFER EXPIRED";
                     }
                 }
+
+                updateClock(); // run function once at first to avoid delay
+                const timeinterval = setInterval(updateClock, 1000);
+            }
+
+            initializeClock('countdown', deadline);
+        });
+
+        $('#carouselExampleSlidesOnly').slick();
+        $(document).ready(function() {
+            $('.delete-btn').on('click', function(e) {
+                e.preventDefault();
+                var form = $(this).closest('.delete-form');
+
+                $.confirm({
+                    title: 'Confirm!',
+                    content: 'Are you sure you want to delete?',
+                    buttons: {
+                        confirm: function() {
+                            form.submit();
+                        },
+                        cancel: function() {
+                            // close the dialog
+                        }
+                    }
+                });
             });
         });
-    });
-
-        
     </script>
 
 </body>

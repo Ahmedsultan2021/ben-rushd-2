@@ -16,7 +16,7 @@
                 </div>
                 <div class="filters-by-category mb-2">
                     <ul class="option-set justify-content-center" data-option-key="filter">
-                        <li><a href="#filter" data-option-value="*" class="selected">All</a></li>
+                        <li><a href="#filter" data-option-value="*" class="selected">كل الأطباء</a></li>
                         @foreach ($distinctDepartmentNames as $name)
                         <!-- Using the slug function to create a CSS-friendly class name -->
                         <li><a href="#filter" data-option-value=".{{ \Illuminate\Support\Str::slug($name) }}">{{ $name }}</a></li>
@@ -55,12 +55,15 @@
         <div class="section my-5">
 			<div class="container">
 				<div class="title-wrap text-center">
-					<h2 class="h1">Specialist Dental Practice</h2>
+					<h2 class="h1">اطباؤنا المتخصصون</h2>
 					<div class="h-decor"></div>
 				</div>
 				<div class="text-center">
-					<p class="max-900">Our dentists are committed to improving your general dental health and restoring your smile. We are a specialist dental practice also offering the best and most affordable dental implants for your oral health and rehabilitation. Make a FREE dental implants consultation and assessment for a personal treatment plan and meet our friendly and professional staff.</p>
-					<a href="#" class="btn mt-3" data-toggle="modal" data-target="#modalBookingForm"><i class="icon-right-arrow"></i><span>Booking a visit</span><i class="icon-right-arrow"></i></a>
+					<p class="max-900" style="text-align: center" dir="rtl" >
+                        مركز بن رشد للبصريات يعتبر مكانًا يتسم بالاحترافية والجودة في تقديم خدمات الرعاية البصرية. يتمتع أطباء المركز بخبرة واسعة في مجال العناية بالنظر وتصحيح البصر، مما يجعلهم قادرين على تلبية احتياجات المرضى بشكل شامل.</p>
+                        <p class="max-900" dir="rtl" > تتمثل الاحترافية في توفير تشخيص دقيق وخدمات مخصصة لكل فرد، مع التركيز على استخدام أحدث التقنيات والأجهزة الطبية. كما يتميز المركز ببيئة طبية مريحة وودية، مما يعزز تجربة المرضى ويشعرهم بالثقة في جودة الرعاية التي يتلقونها.
+                        </p>
+					<a href="{{ route('makeReservation') }}" class="btn mt-3"><i class="icon-right-arrow"></i><span>حجز موعد</span><i class="icon-right-arrow"></i></a>
 				</div>
 			</div>
 		</div>

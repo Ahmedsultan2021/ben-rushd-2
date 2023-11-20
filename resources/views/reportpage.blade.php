@@ -38,6 +38,16 @@
                             </div>
                           </label>
                         @endif
+
+                        @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
   
                         
                         <form class="contact-form" method="post" novalidate="novalidate" action="{{route('report.store')}}">
@@ -86,7 +96,7 @@
                                     <span class="text-danger">{{ $message }}</span>
                                 @enderror
                             </div>
-                            <input type="hidden" name="branch_id" value="{{$branch_id}}" id="">
+                            <input type="hidden" name="branch_id" value="{{$branch_id}}" >
                             
                             <div class="mt-3">
                                 <button type="submit" class="btn btn-hover-fill"> <i class="icon-left-arrow"></i>  <span>إرسال</span> </button>

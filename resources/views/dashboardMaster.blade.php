@@ -99,7 +99,7 @@
       </div>
     </form>
 
-    <!-- Right navbar links -->
+    {{-- <!-- Right navbar links -->
     <ul class="navbar-nav mr-auto-navbav">
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
@@ -191,7 +191,7 @@
           <i class="fas fa-th-large"></i>
         </a>
       </li>
-    </ul>
+    </ul> --}}
   </nav>
   <!-- /.navbar -->
 
@@ -567,7 +567,7 @@
 
           <li class="nav-header">الاعدادات</li>
           <li class="nav-item">
-            <a href="pages/calendar.html" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-users"></i>
                             <p>
                 المستخدمين
@@ -576,7 +576,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/gallery.html" class="nav-link">
+            <a href="" class="nav-link">
               <i class="nav-icon fas fa-power-off"></i>
               <p>
                 الادوار
