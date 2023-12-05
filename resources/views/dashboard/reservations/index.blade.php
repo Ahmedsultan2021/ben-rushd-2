@@ -119,6 +119,7 @@
                                             <th>الايميل</th>
                                             <th>رقم الهاتف</th>
                                             <th>اسم الفرع</th>
+                                            <th>اسم العرض</th>
                                             <th>تاريخ حجز الموعد</th>
                                         </tr>
                                     </thead>
@@ -130,6 +131,7 @@
                                                 <td>{{ $reservation->email }}</td>
                                                 <td>{{ $reservation->phone }}</td>
                                                 <td>{{ $reservation->branch->name }}</td>
+                                                <td>{{ $reservation->offer->title }}</td>
                                                 <td>{{ $reservation->created_at }}</td>
                                             </tr>
                                         @empty

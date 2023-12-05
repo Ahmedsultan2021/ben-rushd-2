@@ -23,10 +23,7 @@ class Campaign extends Model
     ];
 
     // The attributes that should be cast to native types
-    protected $casts = [
-        'startTime' => 'datetime:Y-m-d\TH:i',
-        'endTime' => 'datetime:Y-m-d\TH:i',
-    ];
+
 
     /**
      * Get the user that owns the campaign.

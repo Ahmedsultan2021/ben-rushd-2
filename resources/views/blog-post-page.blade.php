@@ -25,7 +25,7 @@ namespace App\Models;
 					<div class="col-lg-9 aside">
 						<div class="blog-post blog-post-single">
 							<div class="blog-post-info d-flex flex-row-reverse"  >
-								<div class="post-date m-0 ml-3">  {{ \Carbon\Carbon::parse($post->created_at)->format('d') }}<span>{{ \Carbon\Carbon::parse($post->created_at)->format('M') }}</span>
+								<div class="post-date m-0 ml-3">  {{ \Carbon\Carbon::parse($post->created_at)->format('d')??'' }}<span>{{ \Carbon\Carbon::parse($post->created_at)->format('M')??'' }}</span>
 								</div>
 								<div>
                                     <h2 class="post-title text-right">{{ $post->title }}
@@ -68,10 +68,10 @@ namespace App\Models;
 								
 							<div class="blog-post post-preview" style="display: flex; justify-content: flex-end" dir="rtl">
 								<div class="post-image">
-									<a href="blog-post-page.html"><img class="fixed-image-size" src="{{asset('images/posts')}}/{{$post->image}}" alt=""></a>
+									<a href="{{route('blog-post-page',["post"=>$post->id])}}"><img class="fixed-image-size" src="{{asset('images/posts')}}/{{$post->image}}" alt=""></a>
 								</div>
 								<div class="pr-2">
-									<h4 class="post-title"><a href="blog-post-page.html">{{$post->title}}</a></h4>
+									<h4 class="post-title"><a href="{{route('blog-post-page',[$post->id])}}">{{$post->title}}</a></h4>
 									<div class="post-meta">
 										<div class="post-meta-author text-nowrap">كتب بواسطة <a href="#"><i>{{ $post->user->fname }}</i></a></div>
 										<div class="post-meta-date text-nowrap"><i class="icon icon-clock3"></i>17 Jan, 2018</div>

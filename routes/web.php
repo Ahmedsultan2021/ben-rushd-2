@@ -120,6 +120,9 @@ Route::get('/campaignResponses/{form_id}/{campaign_id?}', function ($form_id, $c
             $field->options = json_decode($field->options, true);
         }
     }
+    $endTime = $campaign->endTime; // consider renaming this column for clarity
+    // dd($endTime);
+
     return view('campaignResponse', ["form" => $form, "formFields" => $formFields, "campaign" => $campaign]);
 })->name('campaignResponse');
 // Route::get('/formcreate', function () {
@@ -137,6 +140,9 @@ Route::get('/offersPage/{id?}', function ($id = null) {
     // $actualEndTime = $offer->created_at->addDays($durationDays)->toDateTimeString();
 
     // dd($actualEndTime);
+
+    // dd($endTime);
+
 
     return view('offersPage', ["branches" => $branches, "offer" => $offer, "endTime" => $endTime]);
 })->name('offersPage');

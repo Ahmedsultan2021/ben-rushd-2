@@ -2,13 +2,14 @@
 @section('content')
     <div class="page-content">
         <div class="section mt-0">
-            <div id="carouselExampleSlidesOnly" style="margin: 0px;width: 100%;min-height: 150px;max-height: 600px ;" class="carousel slide" data-ride="carousel">
+            <div id="carouselExampleSlidesOnly" style="margin: 0px;width: 100%;min-height: 150px;max-height: 600px ;"
+                class="carousel slide" data-ride="carousel">
                 @foreach ($offers as $offer)
                     <div class="carousel-inner">
                         <a href="{{ route('offersPage', ['id' => $offer->id]) }}">
                             <div class="carousel-item">
-                                <img class="d-block w-100" style="width: 100%;min-height: 150px;max-height: 600px ;"  src="{{ asset('images/offers') }}/{{ $offer->image }}"
-                                    alt="First slide">
+                                <img class="d-block w-100" style="width: 100%;min-height: 150px;max-height: 600px ;"
+                                    src="{{ asset('images/offers') }}/{{ $offer->image }}" alt="First slide">
                             </div>
                         </a>
                     </div>
@@ -28,12 +29,12 @@
 
                             </div>
                             <div>
-                                <a href="{{route('ourBranches')}}">
+                                <a href="{{ route('ourBranches') }}">
                                     <button type="button" class="btn btn-outline-light btnsec1"
-                                    style="border-color: white; border-radius: 0px; ">
-                                    < البحث عن أقرب فرع </button>
-                                </a> 
-                                </div>
+                                        style="border-color: white; border-radius: 0px; ">
+                                        < البحث عن أقرب فرع </button>
+                                </a>
+                            </div>
                         </div>
 
                         <div class="line-container">
@@ -51,8 +52,8 @@
                                 <a href="#">
 
                                     <button type="button" class="btn btn-outline-light btnsec1"
-                                    style="border-color: white; border-radius: 0px; ">
-                                    < المزيد</button>
+                                        style="border-color: white; border-radius: 0px; ">
+                                        < المزيد</button>
                                 </a>
                             </div>
                         </div>
@@ -69,83 +70,162 @@
                                 <h3 class="text-white">إختر طبيبك بالإسم أو بالتخصص
                                 </h3>
                             </div>
-                            <a href="{{route('doctors')}}">
+                            <a href="{{ route('doctors') }}">
 
                                 <div> <button type="button" class="btn btn-outline-light btnsec1"
-                                    style="border-color: white; border-radius: 0px; ">
-                                    < ابحث عن طبيبك</button>
-                                </a>
-                            </div>
+                                        style="border-color: white; border-radius: 0px; ">
+                                        < ابحث عن طبيبك</button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="mt-2">
-            <div class="container" style="direction: rtl; text-align: start">
-                <div class="row my-5">
-                    <div class="col-md-6 my-5z">
-                        <h1 style="color: #950000;animation: none">عن المركز</h1>
-                        <h3 style="color: #950000" class="">بدايتنا</h3>
-                        {{ $about['description'] }}
-                    </div>
-                    <div class="col-md-6 my-3">
-                        <img src="{{ asset('images') }}/{{ $about['image'] }}" style="width: 100%"
-                            alt="{{ asset('images') }}/ {{ $about['image'] }}">
-                    </div>
+    <div class="mt-2">
+        <div class="container" style="direction: rtl; text-align: start">
+            <div class="row my-5">
+                <div class="col-md-6 my-5z">
+                    <h1 style="color: #950000;animation: none">عن المركز</h1>
+                    <h3 style="color: #950000" class="">بدايتنا</h3>
+                    {{ $about['description'] }}
+                </div>
+                <div class="col-md-6 my-3">
+                    <img src="{{ asset('images') }}/{{ $about['image'] }}" style="width: 100%"
+                        alt="{{ asset('images') }}/ {{ $about['image'] }}">
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="section " id="aboutSection">
-            <div class="container">
-                <div class="title-wrap text-center">
-                    <h2 class="h1">مركز بن رشد الطبي للعيون<br>
-                         <span class="theme-color">الفروع ومواعيد العمل</span></h2>
-                </div>
-                <div class="nav nav-pills-simple font-weight-bold"  role="tablist" style="direction: rtl">
+    {{-- <div class="section " id="aboutSection">
+        <div class="container">
+            <div class="title-wrap text-center">
+                <h2 class="h1">مركز بن رشد الطبي للعيون<br>
+                    <span class="theme-color">الفروع ومواعيد العمل</span>
+                </h2>
+            </div>
+            <div class="nav nav-pills-simple font-weight-bold" role="tablist" style="direction: rtl">
+                @foreach ($branches as $branch)
+                    <a class="nav-link font-weight-bold {{ $loop->first ? 'active' : '' }}" data-toggle="pill"
+                        href="#tab-{{ $branch->id }}" role="tab" style="font-size: 2rem">
+                        {{ $branch->name }}
+                    </a>
+                @endforeach
+            </div>
+            <div id="tab-content" class="tab-content my-2 my-sm-4">
+                <div id="tab-content" class="tab-content my-2 mt-sm-4">
                     @foreach ($branches as $branch)
-                        <a class="nav-link font-weight-bold {{ $loop->first ? 'active' : '' }}" data-toggle="pill"
-                            href="#tab-{{ $branch->id }}" role="tab" style="font-size: 2rem">
-                            {{ $branch->name }}
-                        </a>
-                    @endforeach
-                </div>
-                <div id="tab-content" class="tab-content my-2 my-sm-4">
-                    <div id="tab-content" class="tab-content my-2 mt-sm-4">
-                        @foreach ($branches as $branch)
-                            <div id="tab-{{ $branch->id }}"
-                                class="tab-pane fade {{ $loop->first ? 'show active' : '' }}" role="tabpanel"
-                                role="tabpanel">
-                                <div class="tab-bg"><img src="images/content/bg-map.png" alt=""></div>
-                                <div class="row">
-                                    <div class="col-md-6 h-100 mb-2 mb-md-0">
-                                        <img src="{{ asset('images/branches') }}/{{ $branch->image }}"
-                                            alt="Product Image" class="fixed-size">
-                                        <a href="#" class="video-btn-circle js-video-btn" data-toggle="modal"
-                                            data-src="https://www.youtube.com/embed/uyWt48mWmz0"
-                                            data-target="#videoModal">
-                                            <span><i class="icon-play"></i></span>
-                                        </a>
-                                        <!-- Video Modal -->
-                                        <div class="modal fade" id="videoModal">
-                                            <div class="modal-dialog">
-                                                <div class="modal-content">
-                                                    <div class="modal-body">
-                                                        <div class="embed-responsive embed-responsive-16by9">
-                                                            <iframe class="embed-responsive-item video" src=""
-                                                                allowscriptaccess="always" allow="autoplay"></iframe>
-                                                        </div>
+                        <div id="tab-{{ $branch->id }}" class="tab-pane fade {{ $loop->first ? 'show active' : '' }}"
+                            role="tabpanel" role="tabpanel">
+                            <div class="tab-bg"><img src="images/content/bg-map.png" alt=""></div>
+                            <div class="row">
+                                <div class="col-md-6 h-100 mb-2 mb-md-0">
+                                    <img src="{{ asset('images/branches') }}/{{ $branch->image }}" alt="Product Image"
+                                        class="fixed-size">
+                                    <a href="#" class="video-btn-circle js-video-btn" data-toggle="modal"
+                                        data-src="https://www.youtube.com/embed/uyWt48mWmz0" data-target="#videoModal">
+                                        <span><i class="icon-play"></i></span>
+                                    </a>
+                                    <!-- Video Modal -->
+                                    <div class="modal fade" id="videoModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="embed-responsive embed-responsive-16by9">
+                                                        <iframe class="embed-responsive-item video" src=""
+                                                            allowscriptaccess="always" allow="autoplay"></iframe>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- //Video Modal -->
                                     </div>
-                                    <div class="col-md-6 " style="direction: rtl; text-align: right">
+                                    <!-- //Video Modal -->
+                                </div>
+                                <div class="col-md-6 " style="direction: rtl; text-align: right">
+                            
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
+
+            </div>
+        </div>
+    </div> --}}
+
+
+    <div class="section bg-grey mt-0" id="servicesSection">
+        <div class="container">
+            <div class="title-wrap text-center text-md-right mr-md-5">
+                <h2 class="h1 " data-title="Our Services"><span>نقدم لكم بعناية <span
+                            class="theme-color">خدماتنا</span></span></h2>
+            </div>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row js-services-tabs-carousel">
+                        @foreach ($departments as $department)
+                            <div class="col-md-6 col-lg-4">
+                                <div class="service-card-style3 " style="direction: rtl;text-align: start">
+                                    <div class="service-card-icon">
+                                        <i class="icon-eye-1"></i>
+                                    </div>
+                                    <h5 class="service-card-name">{{ $department->name }}</h5>
+                                    <p style="direction: rtl; text-align: start"> {!! Str::limit(strip_tags($department->brief), 70) !!}</p>
+                                    <div class="mt-2 mt-md-4"></div>
+                                    <a href="{{ route('makeReservation') }}" class="btn-link">حجز موعد الأن
+                                        <i class="icon-left-arrow"></i></a>
+                                </div>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+                <div class="col-md-3 service-info-carousel-wrap">
+                    <div class="service-info-carousel js-services-info">
+                        @foreach ($departments as $department)
+                            <div class="service-info">
+
+                                <div class="service-info-num"><span> {{ $loop->iteration }}
+                                    </span>/{{ count($departments) }} </div>
+                                <p style="direction: rtl; text-align: right">{!! Str::limit(strip_tags($department->brief), 200) !!}</p>
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//section  services-->
+    <!--section-->
+
+
+    <div class="section bg-grey py-0 " id="faqSection">
+        <div class="container-fluid px-0">
+            <div class="row no-gutters">
+
+                <div class="col-xl-6 banner-left bg-cover "
+                    style="background-image: url('{{ asset('images') }}/{{ $about['image'] }}');"></div>
+                <div class="col-xl-6">
+                    <div class="faq-wrap faq-wrap--pad-lg px-15 px-lg-8">
+                        <div class="title-wrap text-right">
+                            <h2 class="h1 " style="color: #950000">الفروع ومواعيد العمل</h2>
+                        </div>
+                        <div class="mt-2 mt-lg-4"></div>
+                        @foreach ($branches as $branch)
+                            <div class="faq-item" dir="rtl">
+                                <a data-toggle="collapse" data-parent="#faqAccordion{{ $branch->id }}" href="#faqItem{{ $branch->id }}"
+                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">
+                                        {{ $branch->name }}
+                                    </span></a>
+                                <div id="faqItem{{ $branch->id }}" class="collapse  faq-item-content" role="tabpanel">
+                                    <div>
                                         <div class="pt-xl-1" style="direction: rtl; text-align: right">
-                                            <p style="font-weight: 800" >{!! Str::limit($branch->brief, 300) !!}</p>
+                                            <p style="font-weight: 800">{!! Str::limit($branch->brief, 300) !!}</p>
                                             <h3 style="color: #950000">مواعيد العمل</h3>
                                             @php
                                                 $branch->worktimes = json_decode($branch->worktimes, true);
@@ -155,277 +235,132 @@
                                             <table style="width: 100%; border-collapse: collapse;">
                                                 @foreach ($days as $index => $day)
                                                     <tr style="border-bottom: 1px solid #ddd;">
-                                                        <td style="padding: 8px; color: #950000;">{{ $daysArabic[$index] }}</td>
-                                                        <td style="padding: 8px;">{{ $branch->worktimes["$day"] }}</td>
+                                                        <td style="padding: 8px; color: #950000; font-weight: 700 ">{{ $daysArabic[$index] }}
+                                                        </td>
+                                                        <td style="padding: 8px; font-weight: 700 ">{{ $branch->worktimes["$day"] }}</td>
                                                     </tr>
                                                 @endforeach
                                             </table>
-                                            
-
+    
+    
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         @endforeach
 
-
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-        <div class="section bg-grey mt-0" id="servicesSection">
-            <div class="container">
-                <div class="title-wrap text-center text-md-right mr-md-5">
-                    <h2 class="h1 " data-title="Our Services"><span>نقدم لكم بعناية <span
-                                class="theme-color">خدماتنا</span></span></h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-9">
-                        <div class="row js-services-tabs-carousel">
-                            @foreach ($departments as $department)
-                                <div class="col-md-6 col-lg-4">
-                                    <div class="service-card-style3 " style="direction: rtl;text-align: start">
-                                        <div class="service-card-icon">
-                                            <i class="icon-eye-1"></i>
-                                        </div>
-                                        <h5 class="service-card-name">{{ $department->name }}</h5>
-                                        <p style="direction: rtl; text-align: start"> {!! Str::limit(strip_tags($department->brief), 70) !!}</p>
-                                        <div class="mt-2 mt-md-4"></div>
-                                        <a href="{{ route('makeReservation') }}" class="btn-link">حجز موعد الأن
-                                            <i class="icon-left-arrow"></i></a>
-                                    </div>
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-                    <div class="col-md-3 service-info-carousel-wrap">
-                        <div class="service-info-carousel js-services-info">
-                            @foreach ($departments as $department)
-                                <div class="service-info">
-
-                                    <div class="service-info-num"><span> {{ $loop->iteration }}
-                                        </span>/{{ count($departments) }} </div>
-                                    <p style="direction: rtl; text-align: right">{!! Str::limit(strip_tags($department->brief), 200) !!}</p>
-                                </div>
-                            @endforeach
-
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!--//section  services-->
-        <!--section-->
-     
-      
-        <div class="section bg-grey py-0 "   id="faqSection">
-            <div class="container-fluid px-0">
-                <div class="row no-gutters">
-                    
-                    <div class="col-xl-6 banner-left bg-cover"
-                        style="background-image: url('{{ asset('images') }}/{{ $about['image'] }}')"></div>
-                    <div class="col-xl-6">
-                        <div class="faq-wrap faq-wrap--pad-lg px-15 px-lg-8">
-                            <div class="title-wrap text-right" >
-                                <h2 class="h1">الاعتمادات والانجازات</h2>
-                            </div>
-                            <div class="mt-2 mt-lg-4"></div>
-                            <div class="faq-item" dir="rtl" >
-                                <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem1"
-                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أول مركز في العالم تجرى فيه عملية Femto Epith Ingrowth Removal. 
-                                    </span></a>
-                                <div id="faqItem1" class="collapse  faq-item-content" role="tabpanel">
-                                    <div>
-                                        <p>If you would like to make an appointment with one of our practitioners, please
-                                            contact our reception staff. Alternatively you may book your appointments
-                                            online. Every effort will be made to accommodate your preferred time and choice
-                                            of practitioner. </p>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="faq-item" dir="rtl" >
-                                <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem2"
-                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px"> أول مركز في الشرق الأوسط تجرى فيه عملية زراعة القرنية LKP بالتخدير السطحي.
- 
-                                    </span></a>
-                                <div id="faqItem2" class="collapse  faq-item-content" role="tabpanel">
-                                    <div>
-                                        <p>If you would like to make an appointment with one of our practitioners, please
-                                            contact our reception staff. Alternatively you may book your appointments
-                                            online. Every effort will be made to accommodate your preferred time and choice
-                                            of practitioner. </p>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="faq-item" dir="rtl" >
-                                <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem3"
-                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px"> أول مركز في المملكة تجرى فيه عملية زراعة القزحية.
- 
-                                    </span></a>
-                                <div id="faqItem3" class="collapse  faq-item-content" role="tabpanel">
-                                    <div>
-                                        <p>If you would like to make an appointment with one of our practitioners, please
-                                            contact our reception staff. Alternatively you may book your appointments
-                                            online. Every effort will be made to accommodate your preferred time and choice
-                                            of practitioner. </p>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="faq-item" dir="rtl" >
-                                <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem4"
-                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أول مركز في الرياض تجرى فيه زراعة الطبقة المبطنة للقرنية.
- 
-                                    </span></a>
-                                <div id="faqItem4" class="collapse  faq-item-content" role="tabpanel">
-                                    <div>
-                                        <p>If you would like to make an appointment with one of our practitioners, please
-                                            contact our reception staff. Alternatively you may book your appointments
-                                            online. Every effort will be made to accommodate your preferred time and choice
-                                            of practitioner. </p>
-                                    </div>
-                                </div>
-                            </div>
-        
-                            <div class="faq-item" dir="rtl" >
-                                <a data-toggle="collapse" data-parent="#faqAccordion1" href="#faqItem5"
-                                    aria-expanded="true"><span style="padding: 0px 10px 0px 20px">  أكثر مركز خاص تجرى فيه زراعة العدسات المتقدمة بعد إزالة الماء الأبيض.
-
- 
-                                    </span></a>
-                                <div id="faqItem5" class="collapse  faq-item-content" role="tabpanel">
-                                    <div>
-                                        <p>If you would like to make an appointment with one of our practitioners, please
-                                            contact our reception staff. Alternatively you may book your appointments
-                                            online. Every effort will be made to accommodate your preferred time and choice
-                                            of practitioner. </p>
-                                    </div>
-                                </div>
-                            </div>
-        
-                         
-                        </div>
-                    </div>
-                </div>
+    </div>
+    <!--//section faq-->
+    <!--section specialists-->
+    <div class="section mb-5" id="specialistsSection">
+        <div class="container">
+            <div class="title-wrap text-center">
+                <div class="h-sub theme-color">فريقنا المحترف</div>
+                <h2 class="h1 title-with-clone" data-title="Specialists">اطباؤنا المتخصصون</h2>
+                <div class="h-decor"></div>
             </div>
-        </div>
-        <!--//section faq-->
-        <!--section specialists-->
-        <div class="section mb-5" id="specialistsSection">
-            <div class="container">
-                <div class="title-wrap text-center">
-                    <div class="h-sub theme-color">فريقنا المحترف</div>
-                    <h2 class="h1 title-with-clone" data-title="Specialists">اطباؤنا المتخصصون</h2>
-                    <div class="h-decor"></div>
-                </div>
-                {{-- <form action="#" class="content-search d-flex">
+            {{-- <form action="#" class="content-search d-flex">
                     <div class="input-wrap">
                         <input type="text" class="form-control" placeholder="Search for specialist">
                     </div>
                     <button type="submit"><i class="icon-search"></i></button>
                 </form> --}}
-                <div class="mt-3 mt-lg-5"></div>
-                <div class="row specialist-carousel2 js-specialist-carousel2">
-                    @foreach ( $doctors as $doctor )
+            <div class="mt-3 mt-lg-5"></div>
+            <div class="row specialist-carousel2 js-specialist-carousel2">
+                @foreach ($doctors as $doctor)
                     @if ($loop->index < 4)
-
-                    <div class="doctor-box-h-wrap">
-                        <div class="doctor-box-h">
-                            <div class="doctor-box-h-photo">
-                                <img src="{{ asset('images/doctors/' . $doctor->image) }}"
-                                alt="" style="width: -webkit-fill-available" >
+                        <div class="doctor-box-h-wrap">
+                            <div class="doctor-box-h">
+                                <div class="doctor-box-h-photo">
+                                    <img src="{{ asset('images/doctors/' . $doctor->image) }}" alt=""
+                                        style="width: -webkit-fill-available">
                                 </div>
-                            <div class="doctor-box-h-info" dir="rtl" style="text-align: right" >
-                                <h5 class="doctor-box-h-name">الدكتور / {{$doctor->fname}} {{$doctor->lname}} </h5>
-                                <table class="table doctor-box-h-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>التخصص:</td>
-                                            <td> {{$doctor->Speciality}}</td>
-                                        </tr>
-                                        @foreach ( $doctor->branches as $branch )
-                                        {{-- <span class="badge">{{$branch->name}} </span> --}}
-                                        <tr>
-                                            @if ($loop->iteration == 1)
-                                                
-                                            <td>الفروع:</td>
-                                            @else
-                                                <td></td>
-                                            @endif
-                                            <td>{{$branch->name}} </td>
-                                        </tr>
-                                        @endforeach
-                                        {{-- <tr>
+                                <div class="doctor-box-h-info" dir="rtl" style="text-align: right">
+                                    <h5 class="doctor-box-h-name">الدكتور / {{ $doctor->fname }} {{ $doctor->lname }}
+                                    </h5>
+                                    <table class="table doctor-box-h-table">
+                                        <tbody>
+                                            <tr>
+                                                <td>التخصص:</td>
+                                                <td> {{ $doctor->Speciality }}</td>
+                                            </tr>
+                                            @foreach ($doctor->branches as $branch)
+                                                {{-- <span class="badge">{{$branch->name}} </span> --}}
+                                                <tr>
+                                                    @if ($loop->iteration == 1)
+                                                        <td>الفروع:</td>
+                                                    @else
+                                                        <td></td>
+                                                    @endif
+                                                    <td>{{ $branch->name }} </td>
+                                                </tr>
+                                            @endforeach
+                                            {{-- <tr>
                                             <td></td>
                                             <td>Laser Eye Surgery</td>
                                         </tr> --}}
-                                        <tr>
-                                            <td>سنوات الخبرة</td>
-                                            <td>20 عام من الخبر</td>
-                                        </tr>
-                                        @foreach ( $doctor->departments as $branch )
-                                        {{-- <span class="badge">{{$branch->name}} </span> --}}
-                                        <tr>
-                                            @if ($loop->iteration == 1)
-                                                
-                                            <td>الاقسام:</td>
-                                            @else
-                                                <td></td>
-                                            @endif
-                                            <td>{{$branch->name}} </td>
-                                        </tr>
-                                        @endforeach
-                                        @foreach ( json_decode($doctor->experience, true) as $experience )
-                                        {{-- <span class="badge">{{$branch->name}} </span> --}}
-                                        <tr>
-                                            @if ($loop->iteration == 1)
-                                                
-                                            <td>الخبرات:</td>
-                                            @else
-                                                <td></td>
-                                            @endif
-                                            <td>{{$experience}} </td>
-                                        </tr>
-                                        @endforeach
-                                        @foreach ( json_decode($doctor->qualifications , true) as $qualifications )
-                                        {{-- <span class="badge">{{$branch->name}} </span> --}}
-                                        <tr>
-                                            @if ($loop->iteration == 1)
-                                                
-                                            <td>المؤهلات:</td>
-                                            @else
-                                                <td></td>
-                                            @endif
-                                            <td>{{$qualifications}} </td>
-                                        </tr>
-                                        @endforeach
-                                     
-                               
-                                      
-                                    </tbody>
-                                </table>
-                                <div class="doctor-box-h-booking">
-                                    <a href="{{route('makeReservation')}}" class="btn" 
-                                        ><span>حجز موعد</span><i class="icon-left-arrow"></i></a>
+                                            <tr>
+                                                <td>سنوات الخبرة</td>
+                                                <td>20 عام من الخبر</td>
+                                            </tr>
+                                            @foreach ($doctor->departments as $branch)
+                                                {{-- <span class="badge">{{$branch->name}} </span> --}}
+                                                <tr>
+                                                    @if ($loop->iteration == 1)
+                                                        <td>الاقسام:</td>
+                                                    @else
+                                                        <td></td>
+                                                    @endif
+                                                    <td>{{ $branch->name }} </td>
+                                                </tr>
+                                            @endforeach
+                                            @foreach (json_decode($doctor->experience, true) as $experience)
+                                                {{-- <span class="badge">{{$branch->name}} </span> --}}
+                                                <tr>
+                                                    @if ($loop->iteration == 1)
+                                                        <td>الخبرات:</td>
+                                                    @else
+                                                        <td></td>
+                                                    @endif
+                                                    <td>{{ $experience }} </td>
+                                                </tr>
+                                            @endforeach
+                                            @foreach (json_decode($doctor->qualifications, true) as $qualifications)
+                                                {{-- <span class="badge">{{$branch->name}} </span> --}}
+                                                <tr>
+                                                    @if ($loop->iteration == 1)
+                                                        <td>المؤهلات:</td>
+                                                    @else
+                                                        <td></td>
+                                                    @endif
+                                                    <td>{{ $qualifications }} </td>
+                                                </tr>
+                                            @endforeach
+
+
+
+                                        </tbody>
+                                    </table>
+                                    <div class="doctor-box-h-booking">
+                                        <a href="{{ route('makeReservation') }}" class="btn"><span>حجز موعد</span><i
+                                                class="icon-left-arrow"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     @endif
-                    @endforeach
-         
-                </div>
+                @endforeach
+
             </div>
         </div>
-        <!--//section specialists-->
-        <!--section testimonials-->
-        {{-- <div class="section bg-cover" id="testimonialsSection">
+    </div>
+    <!--//section specialists-->
+    <!--section testimonials-->
+    {{-- <div class="section bg-cover" id="testimonialsSection">
             <div class="container-fluid px-0">
                 <div class="reviews-style3-wrap">
                     <div class="reviews-left" style="background-image: url(images/content/testimonials-left.png)"></div>
@@ -470,9 +405,9 @@
                 </div>
             </div>
         </div> --}}
-        <!--//section testimonials-->
-        <!--section events-->
-        {{-- <div class="section" id="eventsSection">
+    <!--//section testimonials-->
+    <!--section events-->
+    {{-- <div class="section" id="eventsSection">
             <div class="container">
                 <div class="title-wrap text-center">
                     <h2 class="h1">Clinic Events</h2>
@@ -548,9 +483,9 @@
                 </div>
             </div>
         </div> --}}
-        <!--//section events-->
-        <!--section banner-->
-        {{-- <div class="section">
+    <!--//section events-->
+    <!--section banner-->
+    {{-- <div class="section">
             <div class="container-fluid px-0">
                 <div class="banner-center bg-cover" style="background-image: url(images/content/banner-center.jpg)">
                     <div class="banner-center-caption text-center">
@@ -565,9 +500,9 @@
                 </div>
             </div>
         </div> --}}
-        <!--//section banner-->
-        <!--section contact-->
-        {{-- <div class="section" id="contactSection">
+    <!--//section banner-->
+    <!--section contact-->
+    {{-- <div class="section" id="contactSection">
             <div class="banner-contact-us" style="background-image: url(images/content/contact-bg.png)">
                 <div class="container">
                     <div class="row no-gutters">
@@ -620,6 +555,6 @@
                 </div>
             </div>
         </div> --}}
-        <!--//section contact-->
+    <!--//section contact-->
     </div>
 @endsection

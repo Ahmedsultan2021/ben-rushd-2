@@ -9,7 +9,7 @@
                     <div class="col text-center">
                         <h1>Offer Countdown</h1>
                         <div id="countdown" data-deadline="{{ $campaign->endTime }}"
-                            class="d-flex justify-content-center flex-wrap ">
+                            class="d-flex justify-content-center flex-wrap">
                             <div class="mr-3 mb-1">
                                 <span id="days"></span> Days
                             </div>
@@ -24,6 +24,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
                 <div class="row">
                     {{-- <div class="col text-center mt-5" >
@@ -114,9 +115,12 @@
                                     </div>
                                     <button @click="submitForm" class="btn btn-success">Submit</button>
                                 </div>
-                                <div v-else >
+                                <div v-else-if="!unsubmit" >
                                     <h2 >تم التسجيل بنجاح</h2> 
                                     <p>سيتم التواصل معك في أقرب وقت</p>
+                                </div>
+                                <div v-else >
+<h2>expired</h2>
                                 </div>
 
                             </div>

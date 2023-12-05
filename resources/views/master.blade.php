@@ -475,6 +475,65 @@
         #countdown span {
             font-weight: bold;
         }
+
+        .float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 120px;
+            right: 29px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px:
+        }
+
+
+        /* Extra small devices (phones, 600px and down) */
+        @media only screen and (max-width: 600px) {
+
+            .float {
+                width: 40px;
+                height: 40px;
+                right: 20px;
+
+            }
+        }
+
+        /* Small devices (portrait tablets and large phones, 600px and up) */
+        @media only screen and (min-width: 600px) {
+            .float {
+                width: 40px;
+                height: 40px;
+                right: 20px;
+
+            }
+
+        }
+
+        /* Medium devices (landscape tablets, 768px and up) */
+        @media only screen and (min-width: 768px) {
+
+            .float {
+                width: 60px;
+                height: 60px;
+                right: 30px;
+
+            }
+        }
+
+        /* Large devices (laptops/desktops, 992px and up) */
+        @media only screen and (min-width: 992px) {}
+
+        /* Extra large devices (large laptops and desktops, 1200px and up) */
+        @media only screen and (min-width: 1200px) {}
     </style>
     {{-- <link href="{{ asset('vendor/bootstrap/bootstrap.min.css') }}" rel="stylesheet"> --}}
 </head>
@@ -484,9 +543,18 @@
         $about = config('about');
 
     @endphp
+
+    <a href="https://api.whatsapp.com/send?phone={{ $about['whats_number'] }}&text=hi" class="float" target="_blank">
+
+        <i class="fab fa-whatsapp" style="padding-top:15px "></i>
+
+
+
+    </a>
     <!--header-->
 
     <header class="header">
+
         <div class="header-quickLinks js-header-quickLinks d-lg-none">
             <div class="quickLinks-top js-quickLinks-top"></div>
             <div class="js-quickLinks-wrap-m">
@@ -509,7 +577,9 @@
 
                             <a href="{{ $about['twitter_link'] }}"> <i class="fab fa-twitter"></i> </a>
 
-                            <a href="mailto:{{ $about['email'] }}"> <i class="fab fa-google"></i> </a>
+                            <a href="{{ $about['tiktok'] }}"> <img
+                                    style="width: 15px; padding-bottom: 3px ; color: #950000"
+                                    src="{{ asset('t.webp') }}" alt=""> </a>
 
                             <a href="{{ $about['instagram_link'] }}"> <i class="fab fa-instagram"></i> </a>
 
@@ -649,8 +719,7 @@
                                         class="icon-facebook-logo"></i></a>
                                 <a href="{{ $about['twitter_link'] }}" target="blank" class="hovicon"><i
                                         class="icon-twitter-logo"></i></a>
-                                <a href="mailto:{{ $about['email'] }}" target="blank" class="hovicon"><i
-                                        class="icon-google-logo"></i></a>
+                                {{-- <a href="mailto:{{ $about['email'] }}" target="blank" class="hovicon"> <img style="width: 15px; padding-bottom: 3px ; color: #950000" src="{{asset('t.webp')}}" alt=""></a> --}}
                                 <a href="{{ $about['instagram_link'] }}" target="blank" class="hovicon"><i
                                         class="icon-instagram"></i></a>
                             </div>
@@ -763,22 +832,29 @@
 
     <link href="{{ asset('vendor/bootstrap/bootstrap.min.js') }}" rel="stylesheet">
     <script>
-        // Get the current year
         var currentYear = new Date().getFullYear();
-
-        // Set the current year in the HTML element
         document.getElementById("currentYear").innerHTML = currentYear;
-        document.addEventListener('DOMContentLoaded', function() {
-            // Get the deadline from the data-deadline attribute
-            let deadline = new Date(document.getElementById("countdown").getAttribute("data-deadline"));
 
-            // Function to compute the remaining time
+        document.addEventListener('DOMContentLoaded', function() {
+            let deadline = new Date(document.getElementById("countdown").getAttribute("data-deadline"));
+            console.log("Deadline:", deadline); // For debugging
+
             function getTimeRemaining(endtime) {
                 const total = Date.parse(endtime) - Date.parse(new Date());
                 const seconds = Math.floor((total / 1000) % 60);
                 const minutes = Math.floor((total / 1000 / 60) % 60);
                 const hours = Math.floor((total / (1000 * 60 * 60)) % 24);
                 const days = Math.floor(total / (1000 * 60 * 60 * 24));
+
+                if (total <= 0) {
+                    return {
+                        'total': 0,
+                        'days': 0,
+                        'hours': 0,
+                        'minutes': 0,
+                        'seconds': 0
+                    };
+                }
 
                 return {
                     'total': total,
@@ -806,11 +882,13 @@
 
                     if (t.total <= 0) {
                         clearInterval(timeinterval);
-                        clock.innerHTML = "OFFER EXPIRED";
+                        // Update the countdown display or the container element with the expired message
+                        document.getElementById("countdown").innerHTML = "<h3>OFFER EXPIRED</h3>";
                     }
                 }
 
-                updateClock(); // run function once at first to avoid delay
+
+                updateClock(); // Run once to avoid delay
                 const timeinterval = setInterval(updateClock, 1000);
             }
 

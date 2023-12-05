@@ -70,9 +70,7 @@ class CampaignController extends Controller
             'endTime' => $request->input('endTime'),
             'user_id' => Auth::user()->id,  // Assuming the campaign belongs to a user
         ]);
-
         $campaign->save();
-
         if ($request->has('forms')) {
             $campaign->forms()->sync($request->forms);  // Sync the selected forms
         }
